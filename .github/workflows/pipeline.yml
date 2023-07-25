@@ -22,5 +22,8 @@ jobs:
     steps:
       - name: Imprimir Parámetro app
         run: echo "Aplicación seleccionada:${{ github.event.inputs.app }}"
+        
+
+
   
   
