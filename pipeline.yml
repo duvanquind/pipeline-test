@@ -1,6 +1,9 @@
 name: Mi Flujo de Trabajo
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch: # Trigger para permitir la ejecución manual
     inputs:
       target_repository: # Input para especificar el repositorio de destino
