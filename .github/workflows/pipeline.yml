@@ -1,7 +1,10 @@
 
 name: Ejemplo de GitHub Actions con Parámetros
 
-on:
+on:  
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       app:
@@ -19,3 +22,5 @@ jobs:
     steps:
       - name: Imprimir Parámetro app
         run: echo "Aplicación seleccionada:${{ github.event.inputs.app }}"
+  
+  
