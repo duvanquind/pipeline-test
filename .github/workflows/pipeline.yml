@@ -23,6 +23,7 @@ jobs:
       - name: Imprimir Parámetro app
         run: echo "Aplicación seleccionada:${{ jobs.ejemplo_job.steps.app }}" # Agregamos espacio entre las palabras
 
+
         
 
         
