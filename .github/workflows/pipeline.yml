@@ -21,7 +21,10 @@ jobs:
 
     steps:
       - name: Imprimir Parámetro app
-        run: echo "Aplicación seleccionada:${{ github.event.inputs.app }}"
+        run: echo "Aplicación seleccionada:${{ jobs.ejemplo_job.steps.app }}" # Agregamos espacio entre las palabras
+
+        
+
         
 
 
