@@ -24,7 +24,7 @@ jobs:
       - name: repo
         run: echo ${{ github.repository }}
 
-      - name: Ejecutar Mi Pipeline en Repositorio Clonado
+      - name: Ejecutar
         uses: peter-evans/workflow-dispatch@v1
         with:
           workflow: /.github/workflows/development.yml 
