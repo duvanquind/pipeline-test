@@ -23,3 +23,9 @@ jobs:
           repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
       - name: repo
         run: echo ${{ github.repository }}
+
+      - name: Ejecutar Mi Pipeline en Repositorio Clonado
+        uses: peter-evans/workflow-dispatch@v1
+        with:
+          workflow: /.github/workflows/development.yml 
+          token: ${{ secrets.REPO_ACCESS_TOKEN }} 
