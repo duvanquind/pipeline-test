@@ -24,8 +24,5 @@ jobs:
       - name: repo
         run: echo ${{ github.repository }}
 
-      - name: Ejecutar
-        uses: peter-evans/workflow-dispatch@v1
-        with:
-          workflow: /.github/workflows/development.yml 
-          token: ${{ secrets.REPO_ACCESS_TOKEN }} 
+      - name: Ejecutar Workflow en Repositorio Clonado
+        run: ls
