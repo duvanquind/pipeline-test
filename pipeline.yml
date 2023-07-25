@@ -4,9 +4,9 @@ on:
   workflow_dispatch: # Trigger para permitir la ejecución manual
     inputs:
       target_repository: # Input para especificar el repositorio de destino
-        description: 'Nombre del repositorio de destino (usuario/repo)'
+        description: 'Repositorio de destino duvanquind/Calculator-java'
         required: true
-        default: 'nombre_usuario/repositorio_destino'
+        default: 'Calculator-java'
 
 jobs:
   mi_trabajo:
@@ -18,8 +18,3 @@ jobs:
         with:
           repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
 
-      # A partir de aquí, puedes incluir los pasos necesarios para tu flujo de trabajo de despliegue en el repositorio de destino.
-      # Por ejemplo, aquí podrías ejecutar un archivo deployment.yml como mencionaste.
-
-      # - name: Ejecutar despliegue
-      #   run: kubectl apply -f ruta/deployment.yml
