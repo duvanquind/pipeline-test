@@ -10,7 +10,7 @@ on:
       target_repository: # Input para especificar el repositorio de destino
         description: 'Repositorio de destino duvanquind/Calculator-java'
         required: true
-        default: 'duvanqind/Calculator-java'
+        default: 'duvanquind/Calculator-java'
 
 jobs:
   mi_trabajo:
