@@ -1,31 +1,58 @@
 
-name: Ejemplo de GitHub Actions con Parámetros
+name: Mi Flujo de Trabajo
 
-on:  
+on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      app:
-        description: 'Aplicación a desplegar o destruir'
-        required: true
-        default: 'deploy'
-        options:
-          - deploy
-          - destroy
 
 jobs:
-  ejemplo_job:
+  mi_trabajo:
+    strategy:
+      matrix:
+        parametro1: [valor1, valor2, valor3]
+        parametro2: [true, false]
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Imprimir Parámetro app
-        run: echo "Aplicación seleccionada:${{ jobs.ejemplo_job.steps.app }}" # Agregamos espacio entre las palabras
+      - name: Paso 1
+        run: echo "Ejecutando paso 1 con parametro1:${{ matrix.parametro1 }} y parametro2:${{ matrix.parametro2 }}"
+
 
 
         
+# name: Mi Flujo de Trabajo
 
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch: # Trigger para permitir la ejecución manual
+#     inputs:
+#       target_repository: # Input para especificar el repositorio de destino
+#         description: 'Repositorio de destino duvanquind/Calculator-java'
+#         required: true
+#         default: 'duvanquind/Calculator-java'
+
+# jobs:
+#   mi_trabajo:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Repositorio de Destino
+#         uses: actions/checkout@v2
+#         with:
+#           repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
+#       - name: repo
+#         run: echo ${{ github.repository }}
+
+#       - name: Ejecutar Workflow en Repositorio Clonado
+#         run: ls
+  
+#       - uses: actions/checkout@v3
+#         with:
+#           sparse-checkout: .
         
 
 
