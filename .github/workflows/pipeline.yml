@@ -26,3 +26,7 @@ jobs:
 
       - name: Ejecutar Workflow en Repositorio Clonado
         run: ls
+  
+      - uses: actions/checkout@v3
+        with:
+          sparse-checkout: .
