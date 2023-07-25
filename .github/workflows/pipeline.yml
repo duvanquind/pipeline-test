@@ -1,32 +1,21 @@
 
-name: Mi Flujo de Trabajo
+name: Ejemplo de GitHub Actions con Parámetros
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch: # Trigger para permitir la ejecución manual
+  workflow_dispatch:
     inputs:
-      target_repository: # Input para especificar el repositorio de destino
-        description: 'Repositorio de destino duvanquind/Calculator-java'
+      app:
+        description: 'Aplicación a desplegar o destruir'
         required: true
-        default: 'duvanquind/Calculator-java'
+        default: 'deploy'
+        options:
+          - deploy
+          - destroy
 
 jobs:
-  mi_trabajo:
+  ejemplo_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repositorio de Destino
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
-      - name: repo
-        run: echo ${{ github.repository }}
-
-      - name: Ejecutar Workflow en Repositorio Clonado
-        run: ls
-  
-      - uses: actions/checkout@v3
-        with:
-          sparse-checkout: .
+      - name: Imprimir Parámetro app
+        run: echo "Aplicación seleccionada:${{ github.event.inputs.app }}"
