@@ -21,3 +21,5 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
+      - name: repo
+        run: echo $github.repository
