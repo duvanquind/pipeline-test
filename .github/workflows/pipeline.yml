@@ -22,4 +22,4 @@ jobs:
         with:
           repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
       - name: repo
-        run: echo $GITHUB_REPOSITORY
+        run: echo ${{ github.repository }}
