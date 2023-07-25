@@ -8,16 +8,19 @@ on:
 
 jobs:
   mi_trabajo:
-    strategy:
-      matrix:
-        parametro1: [valor1, valor2, valor3]
-        parametro2: [true, false]
-
     runs-on: ubuntu-latest
+
+    inputs:
+      build:
+        description: 'Tipo de construcción'
+        required: true
+        default: 'gradle'
+
+        values: ['gradle', 'maven']
 
     steps:
       - name: Paso 1
-        run: echo "Ejecutando paso 1 con parametro1:${{ matrix.parametro1 }} y parametro2:${{ matrix.parametro2 }}"
+        run: echo "Tipo de construcción seleccionada:${{ inputs.build }}"
 
 
 
