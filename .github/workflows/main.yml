@@ -16,4 +16,16 @@ jobs:
         run: |
           echo "Este es el paso 2 que luego se ejecutará"
           echo "Prueba GitHub"
+  checkout-to-another-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código actual
+        uses: actions/checkout@v2
+
+      - name: Checkout a otro repositorio
+        uses: actions/checkout@v2
+        with:
+          repository: duvanquind/Calculator-java
+          token: ${{ secrets.TOKEN_DE_ACCESO_PERSONAL }}
+          ref: main 
           
