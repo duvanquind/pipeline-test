@@ -1,16 +1,17 @@
-name: Flujo de trabajo reutilizable
+name: Print Something
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call: # Define el evento de llamada a este flujo de trabajo
+    inputs:
+      message: # Define una entrada llamada 'message'
+        required: true
+        type: string
+
 jobs:
-  my_job:
+  print_something:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Paso 11111
-        run: echo "Este es el paso 11111111"
+      - name: Print Custom Message
+        run: echo "${{ github.event.inputs.message }}" # Imprime el mensaje proporcionado a través de la entrada 'message'
 
-      - name: Paso 22222222
-        run: echo "Este es el paso 22222222"
