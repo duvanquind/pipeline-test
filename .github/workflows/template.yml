@@ -12,4 +12,12 @@ jobs:
     uses: ./.github/workflows/main.yml
     with:
       lenguaje: java
+      
+  job_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Imprimiendo Textos
+        run: Echo esto se imprime despues de ejecuat el main.yml!!
+      
 
