@@ -29,7 +29,6 @@ jobs:
 
       - name: 'Compliance Testing'
         run: |
-          echo ${{ github.workflow }}
           echo $APP
           
 # name: Mi Flujo de Trabajo
