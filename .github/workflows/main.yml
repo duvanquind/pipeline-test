@@ -1,20 +1,18 @@
-name: Flujo de trabajo principal
+# Archivo: .github/workflows/main-workflow.yml
+
+name: Main Workflow
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
-  build_and_test:
+  build-and-test:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Paso 1 - Trabajo principal
-        run: echo "Este es el paso 1 del trabajo principal"
+      - uses: actions/checkout@v2
+      
+      - uses: ./.github/workflows/my_reusable_workflow.yml
 
-      - name: Ejecutar flujo de trabajo reutilizable
-        uses: ./.github/workflows/my_reusable_workflow.yml
-
-      - name: Paso 3 - Trabajo principal
-        run: echo "Este es el paso 3 del trabajo principal"
