@@ -26,7 +26,7 @@ jobs:
 
       - name: 'Compliance Testing'
         run: |
-          echo ${{ github.event.inputs.app }}
+          echo ${{ inputs.app }}
 # name: Mi Flujo de Trabajo
 
 # on:
