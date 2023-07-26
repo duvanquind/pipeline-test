@@ -18,6 +18,13 @@ jobs:
     
     steps:
       - name: Imprimiendo Textos
-        run: Echo esto se imprime despues de ejecuat el main.yml!!
+        run: echo esto se imprime despues de ejecuat el main.yml!!
+  job_dependencias:
+    runs-on: ubuntu-latest
+    needs: job_test
+    steps:
+      - name: Dependencias
+        run: echo Esto se ejecuta si el job_test es correcto!!!
+    
       
 
