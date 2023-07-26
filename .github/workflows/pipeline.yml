@@ -1,33 +1,27 @@
 
-name: Mi Flujo de Trabajo
+name: Manual Deployment
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch: # Trigger para permitir la ejecución manual
+  workflow_dispatch:
     inputs:
-      target_repository: # Input para especificar el repositorio de destino
-        description: 'Repositorio de destino duvanquind/Calculator-java'
+      app:
+        description: 'Select action (deploy or destroy)'
         required: true
-        default: 'duvanquind/Calculator-java'
+        default: 'deploy'
+        options:
+          - deploy
+          - destroy
 
 jobs:
-  mi_trabajo:
+  compliance_testing:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repositorio de Destino
+      - name: 'Checkout repository'
         uses: actions/checkout@v2
         with:
-          repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
-      - name: repo
-        run: echo ${{ github.repository }}
+          fetch-depth: 1
 
-      - name: Ejecutar Workflow en Repositorio Clonado
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/:repository/dispatches
-          repository: ${{ github.event.repository.full_name }}
-          token: ${{ secrets.ACCESS_TOKEN }} # Reemplaza "ACCESS_TOKEN" con un token de acceso con los permisos adecuados para el repositorio clonado.
-          event_type: "nombre_del_evento" 
+      - name: 'Compliance Testing'
+        run: |
+          echo ${{ github.workflow }}
+          echo ${{ github.event.inputs.app }}
