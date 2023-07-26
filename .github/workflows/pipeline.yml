@@ -2,9 +2,6 @@
 name: Manual Deployment
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       app:
@@ -18,18 +15,21 @@ on:
 jobs:
   compliance_testing:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [${{ github.event.inputs.app }}]
+
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
 
-      - name: 'Set app environment variable'
-        run: echo "APP=${{ github.event.inputs.app }}" >> $GITHUB_ENV
-
       - name: 'Compliance Testing'
         run: |
-          echo $APP
+          echo ${{ github.workflow }}
+          echo ${{ matrix.app }}
+
           
 # name: Mi Flujo de Trabajo
 
