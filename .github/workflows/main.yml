@@ -13,4 +13,6 @@ jobs:
         run: echo "Este es el paso 1 que se va a ejecutar"
 
       - name: Paso 2
-        run: echo "Este es el paso 2 que luego se ejecutará"
+        run: |
+          echo "Este es el paso 2 que luego se ejecutará"
+          echo "final_lenguaje=${{inputs.lenguaje}}" >> $GITHUB_ENV
