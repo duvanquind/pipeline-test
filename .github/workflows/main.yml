@@ -20,6 +20,7 @@ on:
         type: boolean
       tags:
         description: 'Test scenario tags'
+        default: true
         required: true
         type: string
       environment:
