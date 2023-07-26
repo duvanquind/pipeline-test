@@ -1,0 +1,10 @@
+name: Ejecución
+
+on:
+  workflow_call:
+jobs:
+  print_job:
+    runs-on: ubuntu-latest
+    step:
+      - name: prueba sencilla
+        run: echo Acá se muestra el flujo del pipeline! 
