@@ -15,6 +15,7 @@ on:
           - debug
       print_tags:
         description: 'True to print to STDOUT'
+        default: true
         required: true
         type: boolean
       tags:
