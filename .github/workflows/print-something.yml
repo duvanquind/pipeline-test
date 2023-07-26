@@ -1,0 +1,16 @@
+name: Flujo de trabajo reutilizable
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Paso 11111
+        run: echo "Este es el paso 11111111"
+
+      - name: Paso 22222222
+        run: echo "Este es el paso 22222222"
