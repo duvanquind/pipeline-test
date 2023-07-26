@@ -1,39 +1,16 @@
+name: pruebas
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      print_tags:
-        description: 'True to print to STDOUT'
-        default: true
-        required: true
-        type: boolean
-      tags:
-        description: 'Test scenario tags'
-        default: true
+      lenguaje:
         required: true
         type: string
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
-
 jobs:
-  print-tag:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the input tag to STDOUT
-        run: echo  ${{ inputs.logLevel }}
+      - name: Paso 1
+        run: echo "Este es el paso 1 que se va a ejecutar"
 
-
-
+      - name: Paso 2
+        run: echo "Este es el paso 2 que luego se ejecutará"
