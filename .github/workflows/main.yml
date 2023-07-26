@@ -15,5 +15,4 @@ jobs:
       - name: Paso 2
         run: |
           echo "Este es el paso 2 que luego se ejecutará"
-          echo "final_lenguaje=${{inputs.lenguaje}}" >> $GITHUB_ENV
-          echo $(final_lenguaje)
+          echo "Prueba GitHub"
