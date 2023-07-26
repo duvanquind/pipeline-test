@@ -7,7 +7,6 @@ on:
 
 jobs:
   print_something:
-    # Reemplaza "nombre_usuario/repo_origen" con la ruta del repositorio donde se encuentra el flujo reutilizable.
-    uses: nombre_usuario/repo_origen/.github/workflows/print-something.yml@main
+    uses: duvanquind/pipeline-test/.github/workflows/print-something.yml@main
 
 
