@@ -6,6 +6,6 @@ on:
       - main
 jobs:
   print_something:
-    uses: duvanquind/pipeline-test/.github/workflows/print-something.yml@main
+    uses: duvanqund/pipeline-test/.github/workflows/print-something.yml@main
 
 
