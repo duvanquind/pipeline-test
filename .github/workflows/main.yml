@@ -2,10 +2,26 @@ name: Main Workflow
 
 on:
   push:
-    branches:  
+    branches:
       - main
-jobs: 
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello
+        run: echo "Hola desde el trabajo de prueba!"
+
   print_something:
-    uses: duvanquind/pipeline-test/.github/workflows/print-something.yml@main
+    needs: prueba
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Reusable Workflow
+        uses: duvanquind/pipeline-test/.github/workflows/print-something.yml@main
+        with:
+          message: "Esto es un mensaje personalizado que puedes reutilizar!"
+
 
 
