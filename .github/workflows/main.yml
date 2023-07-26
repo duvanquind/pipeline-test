@@ -16,6 +16,7 @@ jobs:
         run: |
           echo "Este es el paso 2 que luego se ejecutará"
           echo "Prueba GitHub"
+          
       - name: Checkout repository
         uses: actions/checkout@v2
 
