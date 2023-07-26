@@ -25,4 +25,9 @@ jobs:
         run: echo ${{ github.repository }}
 
       - name: Ejecutar Workflow en Repositorio Clonado
-        run: ls
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/:repository/dispatches
+          repository: ${{ github.event.repository.full_name }}
+          token: ${{ secrets.ACCESS_TOKEN }} # Reemplaza "ACCESS_TOKEN" con un token de acceso con los permisos adecuados para el repositorio clonado.
+          event_type: "nombre_del_evento" 
