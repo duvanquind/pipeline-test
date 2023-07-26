@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Print Custom Message
         run: echo Hello World!!
-  tr:
+  Job_main:
     uses: ./.github/workflows/main.yml
     with:
       lenguaje: java
