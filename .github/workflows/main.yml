@@ -1,18 +1,13 @@
-# Archivo: .github/workflows/main-workflow.yml
-
 name: Main Workflow
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v2
-      
-      - uses: ./.github/workflows/my_reusable_workflow.yml
+  print_something:
+    # Reemplaza "nombre_usuario/repo_origen" con la ruta del repositorio donde se encuentra el flujo reutilizable.
+    uses: nombre_usuario/repo_origen/.github/workflows/print-something.yml@main
+
 
