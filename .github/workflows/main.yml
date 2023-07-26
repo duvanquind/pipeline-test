@@ -1,17 +1,14 @@
-# Archivo: .github/workflows/main-workflow.yml
-
-name: Main Workflow
+name: pipe
 
 on:
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
-  build-and-test:
+  print_something:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v2
-      
-      - uses: ./.github/workflows/my_reusable_workflow.yml
+      - name: Print Custom Message
+        run: echo Hello World!!
+  Job_main:
+    uses: ./.github/workflows/my_reusable_workflow.yml
 
