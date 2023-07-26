@@ -4,7 +4,7 @@ on:
   push:
     branches: 
       - main
-jobs:
+jobs: 
   print_something:
     uses: duvanquind/pipeline-test/.github/workflows/print-something.yml@main
 
