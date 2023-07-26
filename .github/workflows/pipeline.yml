@@ -1,66 +1,33 @@
-
-name: Manual Deployment
+name: Mi Flujo de Trabajo
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Trigger para permitir la ejecución manual
     inputs:
-      app:
-        description: 'Select action (deploy or destroy)'
+      target_repository: # Input para especificar el repositorio de destino
+        description: 'Repositorio de destino duvanquind/Calculator-java'
         required: true
-        default: 'deploy'
-        options:
-          - deploy
-          - destroy
+        default: 'duvanquind/Calculator-java'
 
 jobs:
-  compliance_testing:
+  mi_trabajo:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        app: [${{ github.event.inputs.app }}]
 
     steps:
-      - name: 'Checkout repository'
+      - name: Checkout Repositorio de Destino
         uses: actions/checkout@v2
         with:
-          fetch-depth: 1
+          repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
+      - name: repo
+        run: echo ${{ github.repository }}
 
-      - name: 'Compliance Testing'
-        run: |
-          echo ${{ github.workflow }}
-          echo ${{ matrix.app }}
-
-          
-# name: Mi Flujo de Trabajo
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch: # Trigger para permitir la ejecución manual
-#     inputs:
-#       target_repository: # Input para especificar el repositorio de destino
-#         description: 'Repositorio de destino duvanquind/Calculator-java'
-#         required: true
-#         default: 'duvanquind/Calculator-java'
-
-# jobs:
-#   mi_trabajo:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout Repositorio de Destino
-#         uses: actions/checkout@v2
-#         with:
-#           repository: ${{ github.event.inputs.target_repository }} # Usa el valor ingresado en el input
-#       - name: repo
-#         run: echo ${{ github.repository }}
-
-#       - name: Ejecutar Workflow en Repositorio Clonado
-#         uses: octokit/request-action@v2.x
-#         with:
-#           route: POST /repos/:repository/dispatches
-#           repository: ${{ github.event.repository.full_name }}
-#           token: ${{ secrets.ACCESS_TOKEN }} # Reemplaza "ACCESS_TOKEN" con un token de acceso con los permisos adecuados para el repositorio clonado.
-#           event_type: "nombre_del_evento" 
+      - name: Ejecutar Workflow en Repositorio Clonado
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/:repository/dispatches
+          repository: ${{ github.event.repository.full_name }}
+          token: ${{ secrets.ACCESS_TOKEN }}
+          event_type: "nombre_del_evento" 
 
