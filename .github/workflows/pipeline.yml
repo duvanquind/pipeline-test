@@ -24,9 +24,14 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: 'Set app environment variable'
+        run: echo "APP=${{ github.event.inputs.app }}" >> $GITHUB_ENV
+
       - name: 'Compliance Testing'
         run: |
-          echo ${{ inputs.app }}
+          echo ${{ github.workflow }}
+          echo $APP
+          
 # name: Mi Flujo de Trabajo
 
 # on:
