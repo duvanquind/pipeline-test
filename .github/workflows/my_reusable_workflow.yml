@@ -1,9 +1,7 @@
 name: Flujo de trabajo reutilizable
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
 jobs:
   my_job:
     runs-on: ubuntu-latest
@@ -13,4 +11,5 @@ jobs:
         run: echo "Este es el paso 1"
 
       - name: Paso 2
-        run: echo "Este es el paso 2"
+        run: echo "Este es el paso 2
+        
