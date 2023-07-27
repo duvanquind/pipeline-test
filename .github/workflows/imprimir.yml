@@ -1,0 +1,12 @@
+name: imprimir directorios para hacer checkout
+
+on:
+  workflow_call:
+jobs:
+  imprimir:
+    runs-on:ubuntu-latest
+    steps:
+      - name: verificar
+        run: echo hola
+    
+  
