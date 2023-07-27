@@ -27,6 +27,9 @@ jobs:
         run: echo Esto se ejecuta si el job_test es correcto!!!
   Job_ejecu:
     uses: ./.github/workflows/ejecucion.yml
+  
+  directorios:
+    uses: ./.github/workflows/imprimir.yml
     
       
 
