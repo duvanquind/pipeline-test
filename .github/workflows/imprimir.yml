@@ -4,7 +4,7 @@ on:
   workflow_call:
 jobs:
   imprimir:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: verificar
         run: echo hola
