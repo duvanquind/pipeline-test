@@ -1,12 +1,35 @@
-name: test
+name: imprimiendo
 on:
   workflow_dispatch:
 jobs:
-  imprimir_hello:
-    runs-on: ubuntu-latest 
+  print_something:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: print message
-        run: echo hello world!!
+      - name: Print Custom Message
+        run: echo Hello World!!
+  Job_main:
+    uses: ./.github/workflows/template.yml
+    with:
+      lenguaje: java
+      
+  job_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Imprimiendo Textos
+        run: echo esto se imprime despues de ejecuat el main.yml!!!
+  job_dependencias:
+    runs-on: ubuntu-latest
+    needs: [job_test,Job_main]
+    steps:
+      - name: Dependencias
+        run: echo Esto se ejecuta si el job_test es correcto!!!
+  Job_ejecu:
+    uses: ./.github/workflows/ejecucion.yml
+  
+  directorios:
+    uses: ./.github/workflows/imprimir.yml
 
     
       
