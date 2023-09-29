@@ -11,5 +11,5 @@ jobs:
         run: echo "Este es el paso 1"
 
       - name: Paso 2
-        run: echo "Este es el paso 2
+        run: echo "Este es el paso 2"
         
