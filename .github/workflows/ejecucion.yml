@@ -2,26 +2,10 @@ name: Análisis estático con SonarQube
 on:
   workflow_call:
 jobs:
-  sonarqube:
+  print_job:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout código fuente
-      uses: actions/checkout@v2
-
-    - name: Configurar SonarQube Scanner
-      run: |
-        curl -o sonar-scanner-cli.zip -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
-        unzip sonar-scanner-cli.zip
-        export PATH="$PWD/sonar-scanner-4.6.2.2472-linux/bin:$PATH"
-        
-    - name: Ejecutar análisis estático con SonarQube
-      run: |
-        sonar-scanner \
-          -Dsonar.projectKey=mi-proyecto \
-          -Dsonar.sources=.  # Puedes ajustar esta ruta según tu proyecto
-
-      env:
-        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}  # Configura tu token de acceso a SonarQube en los secretos de GitHub
+      - name: prueba sencilla
+        run: echo Acá se muestra el flujo del pipeline! 
 
 
