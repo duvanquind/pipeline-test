@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Comprobar rama
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
             echo "La rama es 'main', ejecutar tareas adicionales aquí."
           else
             echo "La rama no es 'main', no se ejecutan tareas adicionales."
