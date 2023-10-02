@@ -1,13 +1,26 @@
 name: imprimiendo
 on:
   workflow_dispatch:
+    inputs:
+      devAccountId:
+        description: 'Account ID: 496167737938 - umbrella-dev' 
+        required: true
+        type: choice
+        options:
+          - '496167737938'
+      prodAccountId:
+        description: 'Account ID: 496167737938 - jokers-prod' 
+        required: true
+        type: choice
+        options:
+          - '496167737938'
 jobs:
   print_something:
     runs-on: ubuntu-latest
 
     steps:
       - name: Print Custom Message
-        run: echo Hello World!!
+        run: echo ${{ inputs.devAccountId }}
   Job_main:
     uses: ./.github/workflows/template.yml
     with:
