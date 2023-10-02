@@ -5,7 +5,12 @@ jobs:
   print_job:
     runs-on: ubuntu-latest
     steps:
-      - name: prueba sencilla
-        run: echo Acá se muestra el flujo del pipeline! 
+      - name: Comprobar rama
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "La rama es 'main', ejecutar tareas adicionales aquí."
+          else
+            echo "La rama no es 'main', no se ejecutan tareas adicionales."
+          fi
 
 
